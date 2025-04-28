@@ -1,6 +1,6 @@
-def power_calculation():
-    input1 = input("Введите числа через пробел: ")
-    numbers = input1.split()
+def stepen():
+    i = input("Введите числа через пробел: ")
+    numbers = i.split()
     power = int(input("Введите степень: "))
     result = []
     for item in numbers:
@@ -17,4 +17,4 @@ def power_calculation():
             result.append(item * power)
     print("Вывод:", " ".join(result))
 
-power_calculation()
+stepen()

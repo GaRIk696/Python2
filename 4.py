@@ -1,12 +1,23 @@
-def count_words():
-    input_string = input("Введите строку: ")
-    words = input_string.lower().split()
+words = []
 
-    unique_words = set(words)
+while True:
+    i = input("Введите строку: ").strip()
+    if not i:
+        print("Вы не ввели исходный список")
+        continue
 
-    word_count = {word: words.count(word) for word in unique_words}
+    punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    cleaned_input = ''.join(char for char in i if char not in punctuation)
+    words = [word.lower() for word in cleaned_input.split()]
 
-    for word, count in word_count.items():
-        print(f"{word}: {count}")
+    if words:
+        break
+    else:
+        print("Строка не может состоять только из знаков препинания!")
 
-count_words()
+dictionary = {}
+for word in words:
+    dictionary[word] = dictionary.get(word, 0) + 1
+
+for word, count in dictionary.items():
+    print(f"{word}: {count}")
